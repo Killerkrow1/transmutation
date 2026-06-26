@@ -2,6 +2,7 @@ package net.killerkrow.transmutation.mixin;
 
 import net.killerkrow.transmutation.util.ModItems;
 import net.killerkrow.transmutation.util.ModSounds;
+import net.killerkrow.transmutation.util.ModStatusEffects;
 import net.killerkrow.transmutation.util.ModTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantments;
@@ -77,7 +78,7 @@ public abstract class ItemEntityInLiquidMixin {
             return new ItemStack(Blocks.BEACON, input.getCount());
         } else if (input.isOf(Items.GHAST_TEAR)) {
             return new ItemStack(Items.END_CRYSTAL, input.getCount());
-        } else if (input.isOf(Items.BOW)) {
+        } else if (input.isOf(Items.CROSSBOW)) {
             ItemStack enchantedBow = new ItemStack(Items.BOW, input.getCount());
             enchantedBow.addEnchantment(Enchantments.MENDING, 1);
             enchantedBow.addEnchantment(Enchantments.UNBREAKING, 3);
@@ -86,7 +87,7 @@ public abstract class ItemEntityInLiquidMixin {
             enchantedBow.addEnchantment(Enchantments.PUNCH, 2);
             enchantedBow.addEnchantment(Enchantments.FLAME, 1);
             return enchantedBow;
-        } else if (input.isOf(Items.NETHERITE_SWORD)) {
+        } else if (input.isOf(Items.DIAMOND_SWORD)) {
             ItemStack enchantedSword = new ItemStack(Items.NETHERITE_SWORD, input.getCount());
             enchantedSword.addEnchantment(Enchantments.MENDING, 1);
             enchantedSword.addEnchantment(Enchantments.UNBREAKING, 3);
@@ -98,15 +99,59 @@ public abstract class ItemEntityInLiquidMixin {
         } else if (input.isOf(Items.GLASS_BOTTLE)) {
             return new ItemStack(Items.EXPERIENCE_BOTTLE, input.getCount());
         } else if (input.isOf(Items.POTION)) {
-            ItemStack potionStack = new ItemStack(Items.POTION, input.getCount());
+            ItemStack potionStack = new ItemStack(Items.BREWING_STAND, input.getCount());
             PotionUtil.setCustomPotionEffects(potionStack, List.of(
                     new StatusEffectInstance(StatusEffects.STRENGTH, 2400, 0),
                     new StatusEffectInstance(StatusEffects.SPEED, 2400, 0),
                     new StatusEffectInstance(StatusEffects.REGENERATION, 2400, 0),
+                    new StatusEffectInstance(ModStatusEffects.SHIMMERING, 6000, 0)
             ));
-
             return potionStack;
+        } else if (input.isOf(Items.DIAMOND_HELMET)) {
+            ItemStack enchantedItem = new ItemStack(Items.NETHERITE_HELMET, input.getCount());
+            enchantedItem.addEnchantment(Enchantments.MENDING, 1);
+            enchantedItem.addEnchantment(Enchantments.UNBREAKING, 3);
+            enchantedItem.addEnchantment(Enchantments.PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.PROJECTILE_PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.BLAST_PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.FIRE_PROTECTION, 3);
+            return enchantedItem;
+        } else if (input.isOf(Items.DIAMOND_CHESTPLATE)) {
+            ItemStack enchantedItem = new ItemStack(Items.NETHERITE_CHESTPLATE, input.getCount());
+            enchantedItem.addEnchantment(Enchantments.MENDING, 1);
+            enchantedItem.addEnchantment(Enchantments.UNBREAKING, 3);
+            enchantedItem.addEnchantment(Enchantments.PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.PROJECTILE_PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.BLAST_PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.FIRE_PROTECTION, 3);
+            return enchantedItem;
+        } else if (input.isOf(Items.DIAMOND_LEGGINGS)) {
+            ItemStack enchantedItem = new ItemStack(Items.NETHERITE_LEGGINGS, input.getCount());
+            enchantedItem.addEnchantment(Enchantments.MENDING, 1);
+            enchantedItem.addEnchantment(Enchantments.UNBREAKING, 3);
+            enchantedItem.addEnchantment(Enchantments.PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.PROJECTILE_PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.BLAST_PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.FIRE_PROTECTION, 3);
+            return enchantedItem;
+        } else if (input.isOf(Items.DIAMOND_BOOTS)) {
+            ItemStack enchantedItem = new ItemStack(Items.NETHERITE_BOOTS, input.getCount());
+            enchantedItem.addEnchantment(Enchantments.MENDING, 1);
+            enchantedItem.addEnchantment(Enchantments.UNBREAKING, 3);
+            enchantedItem.addEnchantment(Enchantments.PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.PROJECTILE_PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.BLAST_PROTECTION, 3);
+            enchantedItem.addEnchantment(Enchantments.FIRE_PROTECTION, 3);
+            return enchantedItem;
+        } else if (input.isOf(Items.DRAGON_HEAD)) {
+            return new ItemStack(Items.TOTEM_OF_UNDYING, input.getCount());
+        } else if (input.isOf(Items.CHAINMAIL_CHESTPLATE)) {
+            return new ItemStack(Items.ELYTRA, input.getCount());
+        } else if (input.isOf(Items.DIAMOND)) {
+            return new ItemStack(Items.TOTEM_OF_UNDYING, input.getCount());
         }
+
+
         // If you no throw correct item, you will get NOTHING BROKE BOY
         return null;
     }
