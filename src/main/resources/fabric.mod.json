@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "transmutation",
+	"version": "${version}",
+	"name": "Transmutation",
+	"description": "A (Library) Mod introducing Transmutation from Terraria but into Minecraft",
+	"authors": [
+		"Killerkrow - Coder, SilverEvermore - Sound Design"
+	],
+	"contact": {
+		"homepage": "https://kkrow.carrd.co",
+		"sources": "https://github.com/killerkrow1/transmutation"
+	},
+	"license": "MIT",
+	"icon": "assets/transmutation/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.killerkrow.transmutation.Transmutation"
+		],
+		"client": [
+			"net.killerkrow.transmutation.TransmutationClient"
+		],
+		"fabric-datagen": [
+			"net.killerkrow.transmutation.TransmutationDataGenerator"
+		]
+	},
+	"mixins": [
+		"transmutation.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
