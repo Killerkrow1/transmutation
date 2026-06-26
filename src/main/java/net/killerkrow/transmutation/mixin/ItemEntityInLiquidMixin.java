@@ -103,7 +103,6 @@ public abstract class ItemEntityInLiquidMixin {
                     new StatusEffectInstance(StatusEffects.STRENGTH, 2400, 0),
                     new StatusEffectInstance(StatusEffects.SPEED, 2400, 0),
                     new StatusEffectInstance(StatusEffects.REGENERATION, 2400, 0),
-                    new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 2400, 0)
             ));
 
             return potionStack;
