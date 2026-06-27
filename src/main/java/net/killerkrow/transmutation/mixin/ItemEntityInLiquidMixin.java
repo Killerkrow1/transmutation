@@ -98,8 +98,8 @@ public abstract class ItemEntityInLiquidMixin {
             return enchantedSword;
         } else if (input.isOf(Items.GLASS_BOTTLE)) {
             return new ItemStack(Items.EXPERIENCE_BOTTLE, input.getCount());
-        } else if (input.isOf(Items.POTION)) {
-            ItemStack potionStack = new ItemStack(Items.BREWING_STAND, input.getCount());
+        } else if (input.isOf(Items.BREWING_STAND)) {
+            ItemStack potionStack = new ItemStack(Items.POTION, input.getCount());
             PotionUtil.setCustomPotionEffects(potionStack, List.of(
                     new StatusEffectInstance(StatusEffects.STRENGTH, 2400, 0),
                     new StatusEffectInstance(StatusEffects.SPEED, 2400, 0),
@@ -144,10 +144,6 @@ public abstract class ItemEntityInLiquidMixin {
             enchantedItem.addEnchantment(Enchantments.FIRE_PROTECTION, 3);
             return enchantedItem;
         } else if (input.isOf(Items.DRAGON_HEAD)) {
-            return new ItemStack(Items.TOTEM_OF_UNDYING, input.getCount());
-        } else if (input.isOf(Items.CHAINMAIL_CHESTPLATE)) {
-            return new ItemStack(Items.ELYTRA, input.getCount());
-        } else if (input.isOf(Items.DIAMOND)) {
             return new ItemStack(Items.TOTEM_OF_UNDYING, input.getCount());
         }
 
